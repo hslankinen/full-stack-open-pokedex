@@ -18,4 +18,4 @@ const useApi = (url, mapResults = (result) => result) => {
 
 }
 
-export { useApi }
+export default useApi

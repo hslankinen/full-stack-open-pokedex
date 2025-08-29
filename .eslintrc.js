@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-undef
+
 module.exports = {
   'env': {
     'browser': true,
@@ -45,6 +45,9 @@ module.exports = {
       'error', { 'before': true, 'after': true }
     ],
     'no-console': 'error',
-    'react/prop-types': 0
+    'react/prop-types': 0,
+    'ignorePatterns': [
+      'webpack.config.js', 'node_modules/', 'dist/'
+    ]
   }
 }
