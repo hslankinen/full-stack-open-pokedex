@@ -5,6 +5,10 @@ on:
     branches:
       - side
 
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-latest
