@@ -3,11 +3,10 @@ name: Deployment pipeline
 on:
   push:
     branches:
-      - main
+      - side
   pull_request:
     branches: [main]
     types: [opened, synchronize]
-
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-latest
