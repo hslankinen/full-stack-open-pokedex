@@ -4,7 +4,7 @@ describe('Pokedex', () => {
   test('front page can be opened', async ({ page }) => {
     await page.goto('')
     await expect(page.getByText('ivysaur')).toBeVisible()
-    await expect(page.getByText('butterfree')).toBeVisible()
+    await expect(page.getByText('Pokémon and Pokémon character names are trademarks of Nintendo')).toBeVisible()
   })
 
   test('navigation from front page to other pages works', async ({ page }) => {
