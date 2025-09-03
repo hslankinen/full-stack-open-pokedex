@@ -41,7 +41,8 @@ jobs:
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-latest
-    steps:  
+    steps:
+      - uses: actions/checkout@1.75.0
       - uses: anothrNick/github-tag-action@1.75.0
         if: ${{ github.event_name == 'push' }}
         env:
