@@ -47,6 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: anothrNick/github-tag-action@1.75.0
+      - run: echo "$CONDITION"
         if: ${{ github.event_name == 'push' }} && ${{ env.CONDITION == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
