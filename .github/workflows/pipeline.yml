@@ -1,8 +1,5 @@
 name: Deployment pipeline
 
-env:
-   CONDITION: ${{ contains(github.event.commits.*.message, '#skip') }}
-
 on:
   push:
     branches:
@@ -47,9 +44,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: anothrNick/github-tag-action@1.75.0
-      - run: echo "$CONDITION"
         if: ${{ github.event_name == 'push' }} && ${{ env.CONDITION == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
           DEFAULT_BUMP: 2
+          CONDITION: ${{ contains(github.event.commits.*.message, '#skip') }}
