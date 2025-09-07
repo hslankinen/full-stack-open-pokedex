@@ -44,8 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: anothrNick/github-tag-action@1.75.0
-        if: ${{ github.event_name == 'push' }} && 
-          ${{ !contains(join(github.event.commits.*.message), '#skip') }}
+        if: ${{ !contains(join(github.event.commits.*.message), '#skip') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
