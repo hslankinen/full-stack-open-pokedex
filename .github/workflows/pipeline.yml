@@ -57,3 +57,11 @@ jobs:
           username: TESTUSER
           severity: info
           details: Release tagging succeeded!
+      - name: Run Discord Webhook
+        uses: johnnyhuy/actions-discord-git-webhook@main
+        if: success()
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          hide_links: true
+          repo_name: Full Stack Open 2024 Pokedex
+
