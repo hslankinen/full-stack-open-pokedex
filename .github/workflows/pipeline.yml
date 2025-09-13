@@ -49,13 +49,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
           DEFAULT_BUMP: 2
-      - name: Release tagging success
-        uses: rjstone/discord-webhook-notify@v1
-        if: success()
+      - name: Release tagging success message
+        uses: sarge841/action-discord-webhook@v1
         with:
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          username: TESTUSER
-          severity: info
-          details: Release tagging succeeded!
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          content: 'Release tagging success notification'
 
 
