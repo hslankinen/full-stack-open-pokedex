@@ -56,4 +56,4 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           username: TESTUSER
           severity: info
-          details: All tests passed!
+          details: Release tagging succeeded!
