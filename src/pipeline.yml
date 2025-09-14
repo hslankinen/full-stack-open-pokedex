@@ -20,7 +20,7 @@ jobs:
       - name: Check style
         run: npm run eslint
       - name: Check building
-        run: npm run buil
+        run: npm run build
       - name: Build failure message with Discord Message
         uses: discord-actions/message@v2
         if: ${{ failure() }}
