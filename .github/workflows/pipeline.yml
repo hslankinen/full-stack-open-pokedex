@@ -20,7 +20,7 @@ jobs:
       - name: Check style
         run: npm run eslint
       - name: Check building
-        run: npm run build
+        run: npm run buil
       - name: Build failure message with Discord Message
         env:
           COMMIT_ID: ${{ toJson(github.event.commits.*.id) }}
