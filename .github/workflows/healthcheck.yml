@@ -1,9 +1,8 @@
 name: URL health check !!!
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "45 19 * * *"
 
 jobs:
   healthcheck_job:
@@ -28,7 +27,7 @@ jobs:
         # Basic auth login password pair.
         # Format: `login:password`
         basic-auth: "login:password" # Optional, default is empty
-    - name: Healt check message
+    - name: Health check message
       uses: discord-actions/message@v2
       if: ${{ success() }}
       with:
