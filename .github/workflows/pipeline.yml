@@ -28,7 +28,7 @@ jobs:
         if: ${{ failure() }}
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          message: 'Commit $COMMIT_ID build failed'
+          message: 'Commit ${{ github.event.commits.*.id }} build failed'
       - name: Run React component tests
         run: npm run test
       - name: Install Playwright dependencies and browsers for e2e tests
