@@ -21,6 +21,14 @@ jobs:
         run: npm run eslint
       - name: Check building
         run: npm run build
+      - name: Build failure message with Discord Message
+        env:
+          COMMIT_ID: ${{ toJson(github.event.commits.*.id) }}
+        uses: discord-actions/message@v2
+        if: ${{ failure() }}
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          message: 'Commit $COMMIT_ID build failed'
       - name: Run React component tests
         run: npm run test
       - name: Install Playwright dependencies and browsers for e2e tests
@@ -49,8 +57,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
           DEFAULT_BUMP: 2
-      - name: Release tagging success message
-        uses: sarge841/action-discord-webhook@v1
+      - name: Release tagging success message with Discord Message
+        uses: discord-actions/message@v2
+        if: ${{ success() }}
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           content: 'Release tagging success notification'
