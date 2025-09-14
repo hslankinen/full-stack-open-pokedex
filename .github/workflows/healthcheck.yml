@@ -2,7 +2,7 @@ name: URL health check !!!
 
 on:
   schedule:
-    - cron: "45 19 * * *"
+    - cron: "55 19 * * *"
 
 jobs:
   healthcheck_job:
@@ -32,5 +32,5 @@ jobs:
       if: ${{ success() }}
       with:
         webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-        message: 'App health check OK'
+        message: 'Scheduled app health check OK'
 
