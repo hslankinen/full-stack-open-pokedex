@@ -62,6 +62,6 @@ jobs:
         if: ${{ success() }}
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-          content: 'Release tagging success notification'
+          message: 'Release tagging success notification'
 
 
