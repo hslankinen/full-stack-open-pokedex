@@ -27,7 +27,7 @@ jobs:
         uses: discord-actions/message@v2
         if: ${{ failure() }}
         with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           message: 'Commit $COMMIT_ID build failed'
       - name: Run React component tests
         run: npm run test
@@ -61,7 +61,7 @@ jobs:
         uses: discord-actions/message@v2
         if: ${{ success() }}
         with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           message: 'Release tagging success notification'
 
 
