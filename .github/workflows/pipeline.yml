@@ -22,13 +22,11 @@ jobs:
       - name: Check building
         run: npm run buil
       - name: Build failure message with Discord Message
-        env:
-          COMMIT_ID: ${{ toJson(github.event.commits.*.id) }}
         uses: discord-actions/message@v2
         if: ${{ failure() }}
         with:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          message: 'Commit ${{ github.event.commits.*.id }} build failed'
+          message: 'Commit ${{ toJson(github.event.commits.*.id) }} build failed'
       - name: Run React component tests
         run: npm run test
       - name: Install Playwright dependencies and browsers for e2e tests
